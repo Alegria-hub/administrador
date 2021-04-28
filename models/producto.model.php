@@ -20,7 +20,7 @@
             return $resultado=$sql->fetchAll();
         }
 
-         function deleteProduct( $prod_id)
+         function deleteProduct($prod_id)
         {
             $conectar = parent::conexion();
             parent::set_names();
@@ -37,14 +37,14 @@
             parent::set_names();
             $sql = "UPDATE productos SET nombre = ?, categoría = ?, imagen = ?, material = ?, talla = ?, stock = ?, precio = ? WHERE id_producto = ?";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1,$prod_id);
-            $sql->bindValue($nombre);
-            $sql->bindValue($categoria);
-            $sql->bindValue($imagen);
-            $sql->bindValue($material);
-            $sql->bindValue($talla);
-            $sql->bindValue($stock);
-            $sql->bindValue($precio);
+            $sql->bindValue(8,$prod_id);
+            $sql->bindValue(1,$nombre);
+            $sql->bindValue(2,$categoria);
+            $sql->bindValue(3,$imagen);
+            $sql->bindValue(4,$material);
+            $sql->bindValue(5,$talla);
+            $sql->bindValue(6,$stock);
+            $sql->bindValue(7,$precio);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
@@ -55,14 +55,13 @@
             parent::set_names();
             $sql = "INSERT INTO (nombre, categoría, imagen, material, talla, stock, precio) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1,$prod_id);
-            $sql->bindValue($nombre);
-            $sql->bindValue($categoria);
-            $sql->bindValue($imagen);
-            $sql->bindValue($material);
-            $sql->bindValue($talla);
-            $sql->bindValue($stock);
-            $sql->bindValue($precio);
+            $sql->bindValue(1,$nombre);
+            $sql->bindValue(2,$categoria);
+            $sql->bindValue(3,$imagen);
+            $sql->bindValue(4,$material);
+            $sql->bindValue(5,$talla);
+            $sql->bindValue(6,$stock);
+            $sql->bindValue(7,$precio);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
